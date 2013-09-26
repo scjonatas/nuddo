@@ -34,8 +34,8 @@ function onQuerySuccess(tx, results) {
 		alert("Row = " + i + " ID = " + results.rows.item(i).id + " Nome =  " + results.rows.item(i).nome);
 	}
 	
-	$("#main_loading").css("display", "none");
-	$("#main_wrapper").css("display", "block");
+//	$("#main_loading").css("display", "none");
+//	$("#main_wrapper").css("display", "block");
 }
 
 // Transaction error callback
