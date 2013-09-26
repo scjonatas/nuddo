@@ -1,3 +1,5 @@
+var db;
+
 // Populate the database
 function populateDb(tx) {
 //	tx.executeSql('DROP TABLE IF EXISTS teste');
@@ -21,7 +23,7 @@ function populateDb(tx) {
 
 // Query the database
 function queryDb(tx) {
-	tx.executeSql('SELECT * FROM empresa', [], onQuerySuccess, onError);
+	tx.executeSql('SELECT * FROM `empresa`', [], onQuerySuccess, onError);
 }
 
 // Query the success callback
@@ -31,6 +33,8 @@ function onQuerySuccess(tx, results) {
 	for (var i = 0; i < len; i++) {
 		alert("Row = " + i + " ID = " + results.rows.item(i).id + " Nome =  " + results.rows.item(i).nome);
 	}
+	
+	$("#main_wrapper").css("display", "block");
 }
 
 // Transaction error callback
@@ -62,8 +66,6 @@ function onDeviceReady() {
 		db.transaction(populateDb, onError, dbCreated);
 	}
 }
-
-var db;
 
 // Wait for device API libraries to load
 document.addEventListener("deviceready", onDeviceReady, false);
