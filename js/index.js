@@ -12,7 +12,7 @@ function populateDb(tx) {
 					"`horarioFuncionamento` text,"+
 					"`email` varchar(255) DEFAULT NULL,"+
 					"`criado` timestamp NULL DEFAULT NULL,"+
-					"`modificado` timestamp NULL DEFAULT NULL,"+
+					"`modificado` timestamp NULL DEFAULT NULL"+
 				  ")");
 		  
 	tx.executeSql("INSERT INTO `empresa` (`id`, `nome`, `logo`, `missao`, `visao`, `descricao`, `descricaoEquipe`, `horarioFuncionamento`, `email`, `criado`, `modificado`) VALUES "+
