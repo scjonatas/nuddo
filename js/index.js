@@ -1,22 +1,44 @@
 // Populate the database
 function populateDb(tx) {
 //	tx.executeSql('DROP TABLE IF EXISTS teste');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS teste (id INTEGER PRIMARY KEY AUTOINCREMENT, data VARCHAR(50))');
-	tx.executeSql('INSERT INTO teste (id, data) VALUES (NULL, "First row")');
-	tx.executeSql('INSERT INTO teste (id, data) VALUES (NULL, "Second row")');
+	tx.executeSql("CREATE TABLE IF NOT EXISTS `cliente` ("+
+					"`idUsuario` int(11) NOT NULL,"+
+					"`cpf` int(11) NOT NULL,"+
+					"`genero` varchar(2) DEFAULT NULL,"+
+					"PRIMARY KEY (`idUsuario`),"+
+					"KEY `fk_cliente_usuario1_idx` (`idUsuario`)"+
+				") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+	
+	tx.executeSql("CREATE TABLE IF NOT EXISTS `empresa` ("+
+					"`id` int(11) NOT NULL AUTO_INCREMENT,"+
+					"`nome` varchar(255) DEFAULT NULL,"+
+					"`logo` varchar(255) DEFAULT NULL,"+
+					"`missao` text,"+
+					"`visao` text,"+
+					"`descricao` text,"+
+					"`descricaoEquipe` text,"+
+					"`horarioFuncionamento` text,"+
+					"`email` varchar(255) DEFAULT NULL,"+
+					"`criado` timestamp NULL DEFAULT NULL,"+
+					"`modificado` timestamp NULL DEFAULT NULL,"+
+					"PRIMARY KEY (`id`)"+
+				  ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;");
+		  
+	tx.executeSql("INSERT INTO `empresa` (`id`, `nome`, `logo`, `missao`, `visao`, `descricao`, `descricaoEquipe`, `horarioFuncionamento`, `email`, `criado`, `modificado`) VALUES "+
+					"(1, 'Clínica NUDDO', 'logo_empresa/clinica-nuddo.png', 'Nossa missão é garantir um serviço de qualidade e seguro, com valor agregado, proporcionando o encantamento do cliente.', 'Proporcionar que a região de Feira de Santana tenha a NUDDO como uma clínica de referência em tratamentos de medicina estética e satisfação no serviço prestado.', 'Todos nós vivemos em busca, cada dia mais, de saúde e bem estar. A Clínica NUDDO entende a importância de suprir esta necessidade e trabalha constantemente para garantir a satisfação com eficácia e segurança. Para isto, conta com profissionais altamente qualificados, acompanhados pelo médico Dr. Lucas Fernandes, membro da Sociedade Brasileira de Laser em Medicina e Cirurgia, além de dispor de equipamentos e produtos diferenciados. Hoje com mais de 50 protocolos, o cliente NUDDO tem a disposição tratamentos personalizados que garantem uma melhor qualidade de vida, saúde, bem estar e beleza.\r\n\r\nNa Clínica NUDDO os protocolos de tratamento são compostos por uso de substâncias e tecnologias aprovadas pela ANVISA (Agência Nacional de Vigilância Sanitária) e pelo FDA (Food and Drugs Administration), pois na nossa visão a beleza deve estar sempre aliada à segurança clínica.', 'Com a recente popularização de tratamentos estéticos, houve também a disseminação de empresas e profissionais prestando o serviço com visão unicamente comercial, sem qualificação na área e sem domínio dos aspectos clínicos do tratamento. Basicamente, sem oferecer a segurança necessária a um procedimento tão sério. O resultado desta prática foi um boom de complicações graves por erros de técnica.\r\n\r\nNa Clínica NUDDO os procedimentos são realizados com os métodos mais seguros do mercado e com supervisão de Dr. Lucas Fernandes, médico membro da Sociedade Brasileira de Laser em Medicina e Cirurgia. De forma personalizada é feita a análise da necessidade do paciente, triagem de fatores de risco, recomendações e definição dos parâmetros dos tratamentos. Tudo para oferecer mais segurança para o paciente e eficácia nos tratamentos.', 'Seg. - 08h às 18h\r\nTer. a Sex. - 08h às 20h\r\nSáb. - 08h às 17h', 'contato@nuddo.com.br', '2013-09-26 14:42:49', '2013-09-26 14:48:54');")
 }
 
 // Query the database
 function queryDb(tx) {
-	tx.executeSql('SELECT * FROM teste', [], onQuerySuccess, onError);
+	tx.executeSql('SELECT * FROM empresa', [], onQuerySuccess, onError);
 }
 
 // Query the success callback
 function onQuerySuccess(tx, results) {
 	var len = results.rows.length;
-	alert("teste table: " + len + " rows found.");
+	alert("empresa table: " + len + " rows found.");
 	for (var i = 0; i < len; i++) {
-		alert("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
+		alert("Row = " + i + " ID = " + results.rows.item(i).id + " Nome =  " + results.rows.item(i).nome);
 	}
 }
 
@@ -35,7 +57,7 @@ function onDbCreated() {
 function onDeviceReady() {
 	$.mobile.defaultPageTransition = "pop";
 
-	db = window.openDatabase("database", "1.0", "Banco de Teste", 200000);
+	db = window.openDatabase("database", "1.0", "nuddo", 200000);
 
 	var dbCreated = window.localStorage.getItem("dbCreated");
 	alert("dbCreated = " + dbCreated);
