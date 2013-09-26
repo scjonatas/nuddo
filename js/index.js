@@ -2,7 +2,7 @@
 function populateDb(tx) {
 //	tx.executeSql('DROP TABLE IF EXISTS teste');
 	tx.executeSql("CREATE TABLE IF NOT EXISTS `empresa` ("+
-					"`id` int(11) NOT NULL PRIMARY KEY AUTOINCREMENT,"+
+					"`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
 					"`nome` varchar(255) DEFAULT NULL,"+
 					"`logo` varchar(255) DEFAULT NULL,"+
 					"`missao` text,"+
