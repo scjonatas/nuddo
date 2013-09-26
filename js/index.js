@@ -52,7 +52,7 @@ function onDbCreated() {
 function onDeviceReady() {
 	$.mobile.defaultPageTransition = "pop";
 
-	db = window.openDatabase("database", "1.0", "nuddo", 200000);
+	db = window.openDatabase("database", "1.0", "nuddo", 3000 * 1024);
 
 	var dbCreated = window.localStorage.getItem("dbCreated");
 	alert("dbCreated = " + dbCreated);
