@@ -29,13 +29,14 @@ function queryDb(tx) {
 // Query the success callback
 function onQuerySuccess(tx, results) {
 	var len = results.rows.length;
-	alert("empresa table: " + len + " rows found.");
-	for (var i = 0; i < len; i++) {
-		alert("Row = " + i + " ID = " + results.rows.item(i).id + " Nome =  " + results.rows.item(i).nome);
-	}
+//	alert("empresa table: " + len + " rows found.");
+//	for (var i = 0; i < len; i++) {
+//		alert("Row = " + i + " ID = " + results.rows.item(i).id + " Nome =  " + results.rows.item(i).nome);
+//	}
 	
-//	$("#main_loading").css("display", "none");
-//	$("#main_wrapper").css("display", "block");
+	$("#main_loading").css("display", "none");
+	$("#main_wrapper").css("display", "block");
+	$("#header_title_main").html(results.rows.item(0).nome);
 }
 
 // Transaction error callback
