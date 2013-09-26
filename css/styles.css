@@ -21,7 +21,7 @@ img {
 	position: fixed;
 }
 #main_content {
-	padding: 0 !important;
+	/*padding: 0 !important;*/
 }
 #main_content_banner_wrapper {
 	width: 100%;
