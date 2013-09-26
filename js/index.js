@@ -2,7 +2,7 @@
 function populateDb(tx) {
 //	tx.executeSql('DROP TABLE IF EXISTS teste');
 	tx.executeSql("CREATE TABLE IF NOT EXISTS `empresa` ("+
-					"`id` int(11) NOT NULL AUTOINCREMENT,"+
+					"`id` int(11) NOT NULL PRIMARY KEY AUTOINCREMENT,"+
 					"`nome` varchar(255) DEFAULT NULL,"+
 					"`logo` varchar(255) DEFAULT NULL,"+
 					"`missao` text,"+
@@ -13,7 +13,6 @@ function populateDb(tx) {
 					"`email` varchar(255) DEFAULT NULL,"+
 					"`criado` timestamp NULL DEFAULT NULL,"+
 					"`modificado` timestamp NULL DEFAULT NULL,"+
-					"PRIMARY KEY (`id`)"+
 				  ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;");
 		  
 	tx.executeSql("INSERT INTO `empresa` (`id`, `nome`, `logo`, `missao`, `visao`, `descricao`, `descricaoEquipe`, `horarioFuncionamento`, `email`, `criado`, `modificado`) VALUES "+
