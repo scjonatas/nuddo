@@ -10,6 +10,7 @@ img {
 }
 #main_wrapper {
 	display: none;
+	position: absolute;
 }
 .header_title {
 	color: greenyellow;
@@ -26,7 +27,7 @@ div[data-role=content] {
 }
 #main_content_banner_wrapper {
 	width: 100%;
-	height: 40%;
+	height: 200px;
 	background: green;
 }
 #main_content_horario_wrapper {
