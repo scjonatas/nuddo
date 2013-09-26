@@ -56,13 +56,13 @@ function onDeviceReady() {
 	db = window.openDatabase("database", "1.0", "nuddo", 3000 * 1024);
 
 	var dbCreated = window.localStorage.getItem("dbCreated");
-	alert("dbCreated = " + dbCreated);
+//	alert("dbCreated = " + dbCreated);
 	if (dbCreated) {
-		alert("Buscando dados!");
+//		alert("Buscando dados!");
 		db.transaction(queryDb, onError);
 	}
 	else {
-		alert("Inserindo dados no banco");
+//		alert("Inserindo dados no banco");
 		window.localStorage.setItem("dbCreated", 1);
 		db.transaction(populateDb, onError, dbCreated);
 	}
