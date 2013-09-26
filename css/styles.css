@@ -5,5 +5,7 @@
 	color: red;
 }
 .loading {
+	width: 150px;
+	height: 150px;
 	margin: auto;
 }
