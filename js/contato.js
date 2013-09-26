@@ -1,0 +1,3 @@
+$("#contato").bind("pageshow", function() {
+	
+});

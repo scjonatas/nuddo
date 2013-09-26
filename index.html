@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>PhoneGap Demo</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" type="text/css" href="jquery/jquery.mobile-1.3.2.min.css"/>
+	</head>
+	<body>
+		<div data-role="page" id="main">
+			<div data-role="header">
+				<h1>PhoneGap Demo</h1>
+			</div>
+			<div id="content" data-role="content">
+				Testando!!<br>
+				<a href="#page2">Page 2</a>
+			</div>
+		</div>
+		
+		<div data-role="page" id="page2">
+			<div data-role="header">
+				<h1>PhoneGap Demo</h1>
+			</div>
+			<div id="contentPage2" data-role="content">
+				Page 2!!<br>
+				<ul id="list" data-role="listview" data-filter="true"></ul>
+			</div>
+		</div>
+		
+		<div data-role="page" id="contato">
+			<div data-role="header">
+				<h1>PhoneGap Demo</h1>
+			</div>
+			<div id="contentContato" data-role="content">
+				Formulário de Contato!!<br>
+				<input id="campo" name="campo" value="campo!" />
+			</div>
+		</div>
+
+		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+		<!--<script type="text/javascript" charset="utf-8" src="cordova.js"></script>-->
+		<script type="text/javascript" charset="utf-8" src="jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="jquery/jquery.mobile-1.3.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/page2.js"></script>
+	</body>
+</html>
