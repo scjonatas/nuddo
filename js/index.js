@@ -1,14 +1,6 @@
 // Populate the database
 function populateDb(tx) {
 //	tx.executeSql('DROP TABLE IF EXISTS teste');
-	tx.executeSql("CREATE TABLE IF NOT EXISTS `cliente` ("+
-					"`idUsuario` int(11) NOT NULL,"+
-					"`cpf` int(11) NOT NULL,"+
-					"`genero` varchar(2) DEFAULT NULL,"+
-					"PRIMARY KEY (`idUsuario`),"+
-					"KEY `fk_cliente_usuario1_idx` (`idUsuario`)"+
-				") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-	
 	tx.executeSql("CREATE TABLE IF NOT EXISTS `empresa` ("+
 					"`id` int(11) NOT NULL AUTO_INCREMENT,"+
 					"`nome` varchar(255) DEFAULT NULL,"+
