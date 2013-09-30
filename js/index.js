@@ -37,7 +37,7 @@ function onQuerySuccess(tx, results) {
 	$("#main_loading").css("display", "none");
 	$("#main_wrapper").css("display", "block");
 	$("#header_title_main").html(results.rows.item(0).nome);
-	$("#main_content_horario_wrapper").html(results.rows.item(0).horarioFuncionamento);
+	$("#main_content_horario_wrapper").html("<strong>Horário de Funcionamento</strong><br>" + results.rows.item(0).horarioFuncionamento);
 }
 
 // Transaction error callback
