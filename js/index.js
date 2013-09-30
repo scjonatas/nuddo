@@ -82,7 +82,7 @@ function getDimensions() {
 		fHeight = $('footer').outerHeight() || 0;
 	return {
 		width: width,
-		height: height - hHeight - fHeight - 1 + iPhoneHeight
+		height: height - hHeight - fHeight + iPhoneHeight
 	};
 }
  
